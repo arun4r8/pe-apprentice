@@ -1,0 +1,90 @@
+TOOL:	xrun(64)	24.03-s013: Started on Oct 26, 2026 at 22:46:50 PDT
+xrun(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+file: ../rtl/fxp.sv
+	module worklib.fxp_add:sv
+		errors: 0, warnings: 0
+	module worklib.fxp_mul:sv
+		errors: 0, warnings: 0
+file: pe_tb.sv
+	module worklib.pe_tb:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		$unit_0x74e5d8ea
+		pe_tb
+
+	Extracting FSMs for coverage:
+		worklib.fxp_mul
+		worklib.fxp_add
+		worklib.pe
+		worklib.pe_tb
+	Total FSMs extracted = 0
+	Building instance overlay tables: .................... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+xmelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
+	Generating native compiled code:
+		worklib.fxp_add:sv <0x4ec5b53e>
+			streams:   3, words:   732
+		worklib.fxp_mul:sv <0x2192b7e2>
+			streams:   2, words:   587
+		worklib.pe:sv <0x56d4f8c3>
+			streams:  17, words: 11928
+		worklib.pe_tb:sv <0x1a18c530>
+			streams:  37, words: 39091
+		worklib.\$unit_0x74e5d8ea :compilation_unit <0x1ebe9801>
+			streams:  19, words:  8433
+  int n_checked = 0;
+              |
+xmelab: *W,COVUTA (./pe_tb.sv,60|14): Toggle coverage is not supported for SystemVerilog integer, real array, string, dynamic array, sparse memory and reference ports. It is also not supported for VHDL multi-dimensional array and array of record. There may also be other such objects in the design.
+	Building instance specific data structures.
+xmelab: *W,CGPIDF: Covergroup "per_instance" option , by default, is set as 0.
+xmelab: *N,COVCGN: Coverage configuration file command "set_covergroup -new_instance_reporting" can be specified to improve the scoping and naming of covergroup instances. It may be noted that subsequent merging of a coverage database saved with this command and a coverage database saved without this command is not allowed.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                     Instances  Unique
+		Modules:                     4       4
+		Registers:                  61      74
+		Scalar wires:               12       -
+		Vectored wires:             20       -
+		Always blocks:               5       5
+		Initial blocks:             11      11
+		Parallel blocks:             1       1
+		Cont. assignments:           6       7
+		Pseudo assignments:         20       -
+		Assertions:                  1       1
+		Covergroup Instances:        0       1
+		Compilation units:           1       1
+		SV Class declarations:       2       2
+		SV Class specializations:    2       2
+		Process Clocks:              3       1
+		Simulation timescale:      1ps
+	Writing initial simulation snapshot: worklib.pe_tb:sv
+Loading snapshot worklib.pe_tb:sv .................... Done
+SVSEED default: 1
+xcelium> source /apps/XCELIUM2403/24.03.013/tools/xcelium/files/xmsimrc
+xcelium> run
+
+=======================================================
+ checked : 500
+ errors  : 0
+ coverage: 100.0%
+=======================================================
+ PASS
+
+Simulation complete via $finish(1) at time 5030 NS + 0
+./pe_tb.sv:252     $finish;
+xcelium> exit
+xmsim: *N,COVCGN: Coverage configuration file command "set_covergroup -new_instance_reporting" can be specified to improve the scoping and naming of covergroup instances. It may be noted that subsequent merging of a coverage database saved with this command and a coverage database saved without this command is not allowed.
+xmsim: *W,CGPIZE: Instance coverage for covergroup instance "cov" will not be dumped to database as per_instance option value is set to 0:./pe_tb.sv, 213.
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  pe_tb(pe_tb)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_51668826_3d6bb0be.ucm (reused)
+  data               :  ./cov_work/scope/test/icc_51668826_3d6bb0be.ucd
+TOOL:	xrun(64)	24.03-s013: Exiting on Oct 26, 2026 at 22:46:51 PDT  (total: 00:00:01)

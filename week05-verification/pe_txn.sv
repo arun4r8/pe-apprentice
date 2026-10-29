@@ -62,9 +62,12 @@ class pe_txn;
   // Every number you write here needs a reason you can say out loud. You
   // will be asked.
 
-  // constraint c_control { ... }
-
-
+  constraint c_control {
+    valid    dist { 1 := 4,  0 := 1  };  // 80%. streaming is the workload; 20% idle keeps "controls on an invalid cycle" reachable
+    enabled  dist { 1 := 19, 0 := 1  };  // 5% low. rare in use, but every pause is followed by data, which is what exposes a frozen pipeline
+    accept_w dist { 1 := 1,  0 := 4  };  // 20%. weights must land often enough that a switch usually finds a fresh background
+    switch   dist { 1 := 3,  0 := 17 };  // 15%. once per load is realistic; with accept at 20%, same-cycle acc+sw lands ~3% = ~15 times in 500
+  }
   // Given. Used in scoreboard failure messages so you can see what was being
   // driven when something went wrong.
   function string show();
@@ -76,3 +79,5 @@ class pe_txn;
 endclass
 
 `endif
+
+

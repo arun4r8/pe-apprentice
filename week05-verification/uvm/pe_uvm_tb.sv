@@ -102,10 +102,13 @@ class pe_seq extends uvm_sequence #(pe_item);
     pe_item it;
     repeat (n) begin
       it = pe_item::type_id::create("it");
-
+      
       // TODO(week5): three lines. start_item(it), randomize it the same way
       // your generator did, then finish_item(it).
       //
+      start_item(it);
+      assert (it.randomize()) else `uvm_fatal("SEQ", "randomize failed")
+      finish_item(it);
       // Two things in this block are the whole reason Half B exists.
       //
       // `type_id::create` instead of `new`. That is the factory: it asks
@@ -175,6 +178,8 @@ endclass
 // mailbox and therefore knew exactly who was listening.
 //------------------------------------------------------------------------
 class pe_monitor extends uvm_monitor;
+  `uvm_component_utils(pe_monitor)
+  virtual pe_if vif;
   `uvm_component_utils(pe_monitor)
   virtual pe_if vif;
   uvm_analysis_port #(pe_item) ap;
@@ -273,8 +278,6 @@ class pe_env extends uvm_env;
   pe_driver                drv;
   uvm_sequencer #(pe_item) sqr;
   pe_monitor               mon;
-  pe_scoreboard            scb;
-
   function new(string name, uvm_component parent);
     super.new(name, parent);
   endfunction

@@ -1,0 +1,270 @@
+TOOL:	xrun(64)	24.03-s013: Started on Oct 26, 2026 at 22:47:58 PDT
+xrun(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+file: ../rtl/fxp.sv
+	module worklib.fxp_add:sv
+		errors: 0, warnings: 0
+	module worklib.fxp_mul:sv
+		errors: 0, warnings: 0
+file: pe_tb.sv
+	module worklib.pe_tb:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		$unit_0x70160de3
+		pe_tb
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.fxp_add:sv <0x0092c5b2>
+			streams:   3, words:   732
+		worklib.fxp_mul:sv <0x77aac2c4>
+			streams:   2, words:   587
+		worklib.pe_tb:sv <0x2e57c263>
+			streams:  37, words: 30233
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                     Instances  Unique
+		Modules:                     4       4
+		Registers:                  56      69
+		Scalar wires:               12       -
+		Vectored wires:             14       -
+		Always blocks:               3       3
+		Initial blocks:             11      11
+		Parallel blocks:             1       1
+		Cont. assignments:           5       6
+		Pseudo assignments:         15       -
+		Assertions:                  1       1
+		Covergroup Instances:        0       1
+		Compilation units:           1       1
+		SV Class declarations:       2       2
+		SV Class specializations:    2       2
+		Process Clocks:              1       1
+		Simulation timescale:      1ps
+	Writing initial simulation snapshot: worklib.pe_tb:sv
+Loading snapshot worklib.pe_tb:sv .................... Done
+SVSEED default: 1
+xcelium> source /apps/XCELIUM2403/24.03.013/tools/xcelium/files/xmsimrc
+xcelium> run
+[MISMATCH] #5 @80000  w=   937 a=   532 p=  1213 | acc=0 sw=0 vld=1 en=1  expected 1213 (0x04bd)  got 4369 (0x1111)
+[MISMATCH] #6 @90000  w=  -449 a=   499 p= -1115 | acc=1 sw=0 vld=1 en=1  expected -1115 (0xfba5)  got 1845 (0x0735)
+[MISMATCH] #15 @180000  w=  1196 a= -1231 p=    58 | acc=1 sw=0 vld=1 en=1  expected 2217 (0x08a9)  got -8747 (0xddd5)
+[MISMATCH] #18 @210000  w=   609 a=  1426 p=   538 | acc=0 sw=0 vld=1 en=1  expected 7200 (0x1c20)  got -8280 (0xdfa8)
+[MISMATCH] #19 @220000  w=  1422 a=  -240 p= -1386 | acc=0 sw=0 vld=1 en=1  expected -2508 (0xf634)  got 98 (0x0062)
+[MISMATCH] #28 @310000  w=  -457 a=  -261 p= -1259 | acc=0 sw=1 vld=1 en=1  expected 354 (0x0162)  got -1259 (0xfb15)
+[MISMATCH] #29 @320000  w=  -112 a= -1177 p=  1188 | acc=1 sw=1 vld=1 en=1  expected 8466 (0x2112)  got 1188 (0x04a4)
+[MISMATCH] #33 @360000  w= -1665 a=  -397 p= -1215 | acc=0 sw=0 vld=1 en=1  expected -1042 (0xfbee)  got -3044 (0xf41c)
+[MISMATCH] #34 @370000  w=  1545 a=  -150 p=   723 | acc=0 sw=0 vld=1 en=1  expected 788 (0x0314)  got 32 (0x0020)
+[MISMATCH] #35 @380000  w=  -476 a=  1296 p=   196 | acc=0 sw=0 vld=1 en=1  expected -371 (0xfe8d)  got 6164 (0x1814)
+[MISMATCH] #37 @400000  w=  -269 a= -1166 p=  -591 | acc=0 sw=0 vld=1 en=1  expected -5961 (0xe8b7)  got -2577 (0xf5ef)
+[MISMATCH] #39 @420000  w= -1021 a=  -744 p=  -790 | acc=0 sw=0 vld=1 en=1  expected -4217 (0xef87)  got -2058 (0xf7f6)
+[MISMATCH] #40 @430000  w=  -525 a=  1470 p=  1911 | acc=0 sw=0 vld=1 en=1  expected 8681 (0x21e9)  got 4414 (0x113e)
+[MISMATCH] #41 @440000  w=  1957 a= -1717 p=  1607 | acc=0 sw=0 vld=1 en=1  expected -6301 (0xe763)  got -1318 (0xfada)
+[MISMATCH] #44 @470000  w=  -141 a=  1603 p=   409 | acc=1 sw=0 vld=1 en=1  expected 7791 (0x1e6f)  got 409 (0x0199)
+[MISMATCH] #46 @490000  w=  -977 a=   892 p=   382 | acc=0 sw=0 vld=1 en=1  expected 4490 (0x118a)  got -110 (0xff92)
+[MISMATCH] #47 @500000  w=   952 a= -1832 p= -1340 | acc=0 sw=0 vld=1 en=1  expected -9778 (0xd9ce)  got -331 (0xfeb5)
+[MISMATCH] #50 @530000  w=  -861 a=   322 p=   303 | acc=0 sw=0 vld=1 en=1  expected 125 (0x007d)  got -500 (0xfe0c)
+[MISMATCH] #51 @540000  w= -1997 a=  -259 p= -1365 | acc=0 sw=0 vld=1 en=1  expected -1223 (0xfb39)  got -720 (0xfd30)
+[MISMATCH] #52 @550000  w=   692 a=  -806 p=   707 | acc=0 sw=0 vld=1 en=1  expected 1150 (0x047e)  got 2715 (0x0a9b)
+[MISMATCH] #53 @560000  w=   856 a=  1993 p=  -415 | acc=1 sw=0 vld=1 en=1  expected -1513 (0xfa17)  got -5382 (0xeafa)
+[MISMATCH] #55 @580000  w=   947 a= -1472 p= -2013 | acc=1 sw=0 vld=1 en=1  expected -6935 (0xe4e9)  got -12214 (0xd04a)
+[MISMATCH] #57 @600000  w=  -571 a= -1708 p=  -218 | acc=0 sw=0 vld=1 en=1  expected -5930 (0xe8d6)  got 6293 (0x1895)
+[MISMATCH] #61 @640000  w=  1222 a=  1618 p=  -697 | acc=0 sw=0 vld=1 en=1  expected -6866 (0xe52e)  got 3607 (0x0e17)
+[MISMATCH] #62 @650000  w= -1181 a=  -905 p=   409 | acc=0 sw=0 vld=1 en=1  expected 3859 (0x0f13)  got -1999 (0xf831)
+[MISMATCH] #63 @660000  w= -1046 a= -1210 p= -1833 | acc=0 sw=0 vld=1 en=1  expected 2780 (0x0adc)  got -5052 (0xec44)
+[MISMATCH] #64 @670000  w= -1982 a=   492 p=  -817 | acc=1 sw=0 vld=1 en=1  expected -2693 (0xf57b)  got 491 (0x01eb)
+[MISMATCH] #65 @680000  w=  -257 a=  -743 p= -1557 | acc=0 sw=0 vld=1 en=1  expected 1275 (0x04fb)  got 4195 (0x1063)
+[MISMATCH] #66 @690000  w=  -973 a=  1817 p=   292 | acc=1 sw=0 vld=1 en=1  expected -6636 (0xe614)  got -13776 (0xca30)
+[MISMATCH] #69 @720000  w=   579 a=  1977 p=  -282 | acc=0 sw=0 vld=1 en=1  expected -7797 (0xe18b)  got 15271 (0x3ba7)
+[MISMATCH] #86 @890000  w=   186 a=  1470 p=   448 | acc=0 sw=0 vld=1 en=1  expected 12012 (0x2eec)  got 448 (0x01c0)
+[MISMATCH] #87 @900000  w= -1935 a=   476 p=   430 | acc=0 sw=0 vld=1 en=1  expected 4174 (0x104e)  got 430 (0x01ae)
+[MISMATCH] #88 @910000  w=  -646 a=  -237 p=   281 | acc=0 sw=0 vld=1 en=1  expected -1584 (0xf9d0)  got 281 (0x0119)
+[MISMATCH] #89 @920000  w= -1901 a= -1363 p=   589 | acc=1 sw=0 vld=1 en=0  expected -1584 (0xf9d0)  got 281 (0x0119)
+[MISMATCH] #90 @930000  w=  -808 a=  1460 p= -1040 | acc=0 sw=0 vld=1 en=0  expected -1584 (0xf9d0)  got 281 (0x0119)
+[MISMATCH] #91 @940000  w=  2005 a=   713 p=  -127 | acc=0 sw=0 vld=1 en=1  expected 5482 (0x156a)  got -127 (0xff81)
+[MISMATCH] #92 @950000  w=  -532 a=  1038 p= -1836 | acc=1 sw=0 vld=1 en=1  expected 6330 (0x18ba)  got -1836 (0xf8d4)
+[MISMATCH] #94 @970000  w=  -179 a=  2009 p=  1813 | acc=1 sw=0 vld=1 en=1  expected 17618 (0x44d2)  got -2362 (0xf6c6)
+[MISMATCH] #96 @990000  w=  -572 a=  1571 p=  1700 | acc=0 sw=0 vld=1 en=1  expected 14059 (0x36eb)  got 601 (0x0259)
+[MISMATCH] #97 @1000000  w=  1731 a= -1480 p=   -23 | acc=0 sw=0 vld=1 en=1  expected -11667 (0xd26d)  got 1011 (0x03f3)
+[MISMATCH] #98 @1010000  w=  1217 a=   368 p= -1349 | acc=0 sw=0 vld=1 en=1  expected 1546 (0x060a)  got -1607 (0xf9b9)
+[MISMATCH] #101 @1040000  w=  -747 a= -1364 p=   442 | acc=0 sw=0 vld=1 en=1  expected 1395 (0x0573)  got 9217 (0x2401)
+[MISMATCH] #102 @1050000  w=   777 a=   935 p=  1894 | acc=1 sw=0 vld=1 en=1  expected 1240 (0x04d8)  got -4122 (0xefe6)
+[MISMATCH] #103 @1060000  w=  -395 a=  -127 p= -1704 | acc=0 sw=0 vld=1 en=1  expected -1616 (0xf9b0)  got -2090 (0xf7d6)
+[MISMATCH] #105 @1080000  w=  -351 a=   361 p= -1213 | acc=0 sw=0 vld=1 en=1  expected -1466 (0xfa46)  got -118 (0xff8a)
+[MISMATCH] #106 @1090000  w=  1020 a=    85 p= -1095 | acc=0 sw=0 vld=1 en=1  expected -1155 (0xfb7d)  got -838 (0xfcba)
+[MISMATCH] #112 @1150000  w=  1274 a= -1518 p= -1554 | acc=0 sw=0 vld=1 en=1  expected -6162 (0xe7ee)  got -13396 (0xcbac)
+[MISMATCH] #116 @1190000  w=  -315 a=  1950 p= -1726 | acc=0 sw=0 vld=1 en=1  expected 13485 (0x34ad)  got -1726 (0xf942)
+[MISMATCH] #117 @1200000  w= -1619 a=   109 p=  -378 | acc=0 sw=0 vld=1 en=1  expected 472 (0x01d8)  got -378 (0xfe86)
+[MISMATCH] #118 @1210000  w=  -338 a=  -140 p=  -434 | acc=0 sw=0 vld=1 en=1  expected -1527 (0xfa09)  got -434 (0xfe4e)
+[MISMATCH] #120 @1230000  w=  -425 a=   321 p=  1519 | acc=1 sw=0 vld=1 en=1  expected 4023 (0x0fb7)  got 1519 (0x05ef)
+[MISMATCH] #126 @1290000  w=  -131 a=  1866 p= -1241 | acc=0 sw=1 vld=1 en=1  expected -4339 (0xef0d)  got -1241 (0xfb27)
+[MISMATCH] #127 @1300000  w=  1211 a=  1548 p= -1647 | acc=0 sw=0 vld=1 en=1  expected -4217 (0xef87)  got -1647 (0xf991)
+[MISMATCH] #128 @1310000  w=  1669 a=  -564 p=  1981 | acc=1 sw=0 vld=1 en=1  expected 2917 (0x0b65)  got 1981 (0x07bd)
+[MISMATCH] #129 @1320000  w= -1448 a= -1859 p=    50 | acc=0 sw=0 vld=1 en=1  expected 3136 (0x0c40)  got -12070 (0xd0da)
+[MISMATCH] #132 @1350000  w=  1761 a= -1153 p= -1021 | acc=1 sw=0 vld=1 en=1  expected 893 (0x037d)  got -8539 (0xdea5)
+[MISMATCH] #133 @1360000  w= -1924 a=   939 p= -1262 | acc=1 sw=0 vld=1 en=1  expected -2821 (0xf4fb)  got 5197 (0x144d)
+[MISMATCH] #136 @1390000  w= -1352 a=  -986 p=  1687 | acc=0 sw=0 vld=1 en=1  expected 3323 (0x0cfb)  got 9097 (0x2389)
+[MISMATCH] #137 @1400000  w=  -636 a=  -667 p=  -882 | acc=0 sw=0 vld=1 en=1  expected 225 (0x00e1)  got 4130 (0x1022)
+[MISMATCH] #138 @1410000  w=    23 a= -1737 p=  1980 | acc=0 sw=0 vld=1 en=1  expected 4863 (0x12ff)  got 15034 (0x3aba)
+[MISMATCH] #154 @1570000  w= -1639 a=  1416 p= -1512 | acc=1 sw=0 vld=1 en=1  expected -12155 (0xd085)  got 8908 (0x22cc)
+[MISMATCH] #159 @1620000  w=  1258 a=   476 p= -1009 | acc=0 sw=0 vld=1 en=1  expected -4057 (0xf027)  got -2614 (0xf5ca)
+[MISMATCH] #183 @1860000  w=    52 a=  -971 p=   638 | acc=1 sw=0 vld=1 en=1  expected -2863 (0xf4d1)  got 5788 (0x169c)
+[MISMATCH] #184 @1870000  w=  -159 a= -1032 p=  1305 | acc=0 sw=0 vld=1 en=1  expected -2416 (0xf690)  got 1095 (0x0447)
+[MISMATCH] #185 @1880000  w=   151 a=  1486 p=   302 | acc=0 sw=0 vld=1 en=1  expected 5659 (0x161b)  got 603 (0x025b)
+[MISMATCH] #192 @1950000  w=  -293 a=  1055 p=   460 | acc=0 sw=0 vld=1 en=1  expected 674 (0x02a2)  got -575 (0xfdc1)
+[MISMATCH] #194 @1970000  w=  1563 a=  -444 p=  -337 | acc=0 sw=0 vld=1 en=1  expected -428 (0xfe54)  got 98 (0x0062)
+[MISMATCH] #195 @1980000  w=  -714 a=   -74 p=   820 | acc=1 sw=0 vld=1 en=1  expected 804 (0x0324)  got 892 (0x037c)
+[MISMATCH] #197 @2000000  w= -1221 a= -1465 p= -1797 | acc=0 sw=0 vld=1 en=1  expected -2095 (0xf7d1)  got 2288 (0x08f0)
+[MISMATCH] #198 @2010000  w=    79 a=   209 p=  1518 | acc=0 sw=0 vld=1 en=1  expected 1560 (0x0618)  got 935 (0x03a7)
+[MISMATCH] #199 @2020000  w= -1258 a=  1193 p=  1908 | acc=0 sw=0 vld=1 en=1  expected 2150 (0x0866)  got -1420 (0xfa74)
+[MISMATCH] #200 @2030000  w=   171 a= -1989 p=  1854 | acc=0 sw=0 vld=1 en=1  expected 1449 (0x05a9)  got 7401 (0x1ce9)
+[MISMATCH] #201 @2040000  w=  1666 a= -1539 p=   952 | acc=1 sw=0 vld=1 en=1  expected 639 (0x027f)  got 5244 (0x147c)
+[MISMATCH] #202 @2050000  w=  1315 a=    59 p=  1055 | acc=1 sw=0 vld=1 en=1  expected 1066 (0x042a)  got 1438 (0x059e)
+[MISMATCH] #208 @2110000  w= -1620 a=   -52 p=   326 | acc=0 sw=0 vld=1 en=1  expected 58 (0x003a)  got 147 (0x0093)
+[MISMATCH] #209 @2120000  w=  -794 a=  1951 p=   -62 | acc=0 sw=0 vld=1 en=1  expected 9959 (0x26e7)  got 6621 (0x19dd)
+[MISMATCH] #210 @2130000  w=   679 a=  1033 p= -1055 | acc=0 sw=0 vld=1 en=1  expected 4251 (0x109b)  got 2483 (0x09b3)
+[MISMATCH] #211 @2140000  w= -2011 a= -1319 p=  -458 | acc=0 sw=0 vld=1 en=1  expected -7234 (0xe3be)  got -4977 (0xec8f)
+[MISMATCH] #212 @2150000  w=  1158 a= -1698 p=  1650 | acc=0 sw=0 vld=1 en=1  expected -7073 (0xe45f)  got -4167 (0xefb9)
+[MISMATCH] #213 @2160000  w= -1292 a=   349 p=  1837 | acc=0 sw=0 vld=1 en=1  expected 3629 (0x0e2d)  got 3032 (0x0bd8)
+[MISMATCH] #214 @2170000  w=  -825 a=   745 p=  1730 | acc=0 sw=0 vld=1 en=1  expected 5556 (0x15b4)  got 4282 (0x10ba)
+[MISMATCH] #216 @2190000  w= -1546 a= -1600 p=  1717 | acc=1 sw=0 vld=1 en=1  expected -6502 (0xe69a)  got -3765 (0xf14b)
+[MISMATCH] #217 @2200000  w=  1556 a=    36 p=  1021 | acc=0 sw=0 vld=1 en=1  expected 1205 (0x04b5)  got 803 (0x0323)
+[MISMATCH] #221 @2240000  w= -1285 a= -1482 p=   868 | acc=1 sw=0 vld=1 en=1  expected 9817 (0x2659)  got 7774 (0x1e5e)
+[MISMATCH] #226 @2290000  w=   548 a=  1327 p= -1331 | acc=1 sw=0 vld=1 en=1  expected -7992 (0xe0c8)  got -3690 (0xf196)
+[MISMATCH] #237 @2400000  w=  2023 a=   198 p= -1813 | acc=0 sw=0 vld=1 en=1  expected -1390 (0xfa92)  got -1391 (0xfa91)
+[MISMATCH] #239 @2420000  w= -1021 a=  1134 p= -1260 | acc=0 sw=0 vld=1 en=1  expected 1167 (0x048f)  got 1158 (0x0486)
+[MISMATCH] #245 @2480000  w=   554 a=   964 p= -2010 | acc=0 sw=0 vld=1 en=1  expected 46 (0x002e)  got -9112 (0xdc68)
+[MISMATCH] #246 @2490000  w=  -975 a=  1101 p= -1702 | acc=0 sw=0 vld=1 en=1  expected 646 (0x0286)  got -9814 (0xd9aa)
+[MISMATCH] #247 @2500000  w=   394 a=   215 p= -1776 | acc=0 sw=0 vld=1 en=1  expected -1318 (0xfada)  got -3360 (0xf2e0)
+[MISMATCH] #248 @2510000  w= -1437 a= -1641 p=   420 | acc=0 sw=0 vld=1 en=1  expected -3080 (0xf3f8)  got 12509 (0x30dd)
+[MISMATCH] #249 @2520000  w=  1999 a=   632 p=  -405 | acc=0 sw=0 vld=1 en=1  expected 942 (0x03ae)  got -5062 (0xec3a)
+[MISMATCH] #250 @2530000  w=  -922 a=  1348 p=  1276 | acc=0 sw=0 vld=1 en=1  expected 4151 (0x1037)  got -8655 (0xde31)
+[MISMATCH] #251 @2540000  w=  1797 a=   470 p=     8 | acc=0 sw=0 vld=1 en=0  expected 4151 (0x1037)  got -8655 (0xde31)
+[MISMATCH] #262 @2650000  w= -1409 a=  2041 p=   553 | acc=0 sw=0 vld=1 en=1  expected 11491 (0x2ce3)  got 553 (0x0229)
+[MISMATCH] #265 @2680000  w= -1250 a=   -42 p=   865 | acc=0 sw=0 vld=1 en=1  expected 639 (0x027f)  got 865 (0x0361)
+[MISMATCH] #266 @2690000  w=  -943 a=   735 p=  1109 | acc=0 sw=0 vld=1 en=1  expected 5048 (0x13b8)  got 1109 (0x0455)
+[MISMATCH] #267 @2700000  w= -1858 a=  1682 p= -1107 | acc=0 sw=0 vld=1 en=1  expected 7907 (0x1ee3)  got -1107 (0xfbad)
+[MISMATCH] #269 @2720000  w=  1196 a=  1474 p= -1376 | acc=0 sw=1 vld=1 en=1  expected 6523 (0x197b)  got -1376 (0xfaa0)
+[MISMATCH] #271 @2740000  w= -1381 a= -1923 p=   463 | acc=0 sw=1 vld=1 en=1  expected -9844 (0xd98c)  got 463 (0x01cf)
+[MISMATCH] #272 @2750000  w=   -34 a= -1847 p= -1560 | acc=1 sw=0 vld=1 en=1  expected -11459 (0xd33d)  got -1560 (0xf9e8)
+[MISMATCH] #273 @2760000  w= -1830 a=  1835 p=     1 | acc=0 sw=0 vld=1 en=1  expected 9835 (0x266b)  got -243 (0xff0d)
+[MISMATCH] #274 @2770000  w= -1077 a= -1533 p= -1823 | acc=0 sw=0 vld=1 en=1  expected -10039 (0xd8c9)  got -1620 (0xf9ac)
+[MISMATCH] #275 @2780000  w= -1751 a=  1269 p=  1949 | acc=0 sw=0 vld=1 en=1  expected 8750 (0x222e)  got 1780 (0x06f4)
+[MISMATCH] #281 @2840000  w=  -942 a= -1245 p=  1226 | acc=1 sw=0 vld=1 en=1  expected 1391 (0x056f)  got 5812 (0x16b4)
+[MISMATCH] #282 @2850000  w=   754 a=  -734 p=  1246 | acc=1 sw=0 vld=1 en=1  expected 1343 (0x053f)  got 3946 (0x0f6a)
+[MISMATCH] #287 @2900000  w=   231 a=  1856 p= -1234 | acc=0 sw=0 vld=1 en=1  expected 4232 (0x1088)  got -14676 (0xc6ac)
+[MISMATCH] #288 @2910000  w=   -14 a=  1163 p= -1167 | acc=0 sw=0 vld=1 en=1  expected 2258 (0x08d2)  got -9590 (0xda8a)
+[MISMATCH] #291 @2940000  w= -1399 a= -1182 p=  -572 | acc=0 sw=0 vld=1 en=1  expected 7988 (0x1f34)  got -4631 (0xede9)
+[MISMATCH] #292 @2950000  w=  -355 a=  -372 p=  -126 | acc=1 sw=0 vld=1 en=1  expected 2568 (0x0a08)  got -1404 (0xfa84)
+[MISMATCH] #293 @2960000  w=  -331 a=  -898 p=  -794 | acc=0 sw=0 vld=1 en=1  expected 5709 (0x164d)  got 451 (0x01c3)
+[MISMATCH] #294 @2970000  w= -1918 a=  -549 p=   388 | acc=0 sw=0 vld=1 en=1  expected 4363 (0x110b)  got 1149 (0x047d)
+[MISMATCH] #295 @2980000  w=   132 a= -1281 p=   207 | acc=0 sw=0 vld=1 en=1  expected 9484 (0x250c)  got 1983 (0x07bf)
+[MISMATCH] #296 @2990000  w=  -433 a=  1596 p= -1912 | acc=0 sw=0 vld=1 en=1  expected -13471 (0xcb61)  got -4126 (0xefe2)
+[MISMATCH] #298 @3010000  w= -1288 a= -1649 p=  -806 | acc=0 sw=0 vld=1 en=1  expected 11136 (0x2b80)  got 1480 (0x05c8)
+[MISMATCH] #300 @3030000  w= -1747 a=   304 p=    93 | acc=0 sw=0 vld=1 en=1  expected -2109 (0xf7c3)  got -329 (0xfeb7)
+[MISMATCH] #301 @3040000  w= -1284 a=  1028 p=   264 | acc=0 sw=0 vld=1 en=1  expected -7181 (0xe3f3)  got -1162 (0xfb76)
+[MISMATCH] #302 @3050000  w= -1171 a=  1895 p= -1674 | acc=0 sw=0 vld=1 en=1  expected -15398 (0xc3da)  got -4302 (0xef32)
+[MISMATCH] #303 @3060000  w=  1795 a= -1867 p= -1527 | acc=0 sw=0 vld=1 en=1  expected 11994 (0x2eda)  got 1062 (0x0426)
+[MISMATCH] #304 @3070000  w= -2038 a=  1614 p= -1269 | acc=0 sw=0 vld=1 en=1  expected -12958 (0xcd62)  got -3508 (0xf24c)
+[MISMATCH] #305 @3080000  w=   -83 a=  -817 p= -1872 | acc=0 sw=0 vld=1 en=1  expected 4044 (0x0fcc)  got -740 (0xfd1c)
+[MISMATCH] #317 @3200000  w=   -63 a=   706 p=  1831 | acc=0 sw=0 vld=1 en=1  expected 851 (0x0353)  got -2080 (0xf7e0)
+[MISMATCH] #318 @3210000  w=  -608 a=   961 p=  1337 | acc=1 sw=0 vld=1 en=1  expected 4 (0x0004)  got -3987 (0xf06d)
+[MISMATCH] #328 @3310000  w=   -19 a=  -787 p=   -47 | acc=0 sw=0 vld=1 en=1  expected 1822 (0x071e)  got 3220 (0x0c94)
+[MISMATCH] #329 @3320000  w=  -580 a=  -649 p=  -982 | acc=0 sw=0 vld=1 en=1  expected 559 (0x022f)  got 1712 (0x06b0)
+[MISMATCH] #339 @3420000  w= -1478 a=  1795 p=  1755 | acc=1 sw=0 vld=1 en=1  expected -5699 (0xe9bd)  got -5369 (0xeb07)
+[MISMATCH] #340 @3430000  w=  -518 a=  -720 p= -1715 | acc=0 sw=0 vld=1 en=1  expected 1274 (0x04fa)  got 2441 (0x0989)
+[MISMATCH] #342 @3450000  w=   848 a=   414 p=  -845 | acc=0 sw=0 vld=1 en=1  expected -2565 (0xf5fb)  got 78 (0x004e)
+[MISMATCH] #345 @3480000  w=  -972 a=  -908 p= -1842 | acc=0 sw=0 vld=1 en=1  expected 1928 (0x0788)  got -5535 (0xea61)
+[MISMATCH] #346 @3490000  w=  1144 a=   210 p=  1543 | acc=0 sw=0 vld=1 en=1  expected 671 (0x029f)  got 2396 (0x095c)
+[MISMATCH] #347 @3500000  w=  1644 a=  1611 p=  -908 | acc=0 sw=0 vld=1 en=1  expected -7598 (0xe252)  got 5642 (0x160a)
+[MISMATCH] #348 @3510000  w= -1475 a=  1864 p=   610 | acc=0 sw=0 vld=1 en=1  expected -7130 (0xe426)  got 8189 (0x1ffd)
+[MISMATCH] #349 @3520000  w=  1467 a=  1091 p=   995 | acc=0 sw=0 vld=1 en=1  expected -3536 (0xf230)  got 5431 (0x1537)
+[MISMATCH] #350 @3530000  w= -1647 a=  1169 p=   881 | acc=1 sw=0 vld=1 en=1  expected -3974 (0xf07a)  got 5634 (0x1602)
+[MISMATCH] #351 @3540000  w=  -598 a=  -732 p=  1998 | acc=0 sw=0 vld=1 en=1  expected 5037 (0x13ad)  got 6707 (0x1a33)
+[MISMATCH] #352 @3550000  w= -1903 a=  1856 p=   912 | acc=0 sw=0 vld=1 en=1  expected -6795 (0xe575)  got -11029 (0xd4eb)
+[MISMATCH] #354 @3570000  w=  1651 a=  1375 p=  1074 | acc=0 sw=0 vld=1 en=1  expected -4636 (0xede4)  got -7773 (0xe1a3)
+[MISMATCH] #355 @3580000  w=  1516 a=  1663 p=  -744 | acc=1 sw=0 vld=1 en=1  expected -7650 (0xe21e)  got -11444 (0xd34c)
+[MISMATCH] #356 @3590000  w=  1760 a=  1750 p=  1790 | acc=0 sw=0 vld=1 en=1  expected -5477 (0xea9b)  got 12153 (0x2f79)
+[MISMATCH] #358 @3610000  w=  -480 a=  1215 p=  -526 | acc=0 sw=0 vld=1 en=1  expected -5572 (0xea3c)  got 2468 (0x09a4)
+[MISMATCH] #359 @3620000  w=  -269 a=   249 p=  1287 | acc=1 sw=0 vld=1 en=1  expected 253 (0x00fd)  got 1900 (0x076c)
+[MISMATCH] #368 @3710000  w= -1924 a=  -654 p=   -11 | acc=1 sw=0 vld=1 en=1  expected 676 (0x02a4)  got -1731 (0xf93d)
+[MISMATCH] #370 @3730000  w=  1840 a=   270 p=   -79 | acc=0 sw=0 vld=1 en=1  expected -363 (0xfe95)  got -2109 (0xf7c3)
+[MISMATCH] #372 @3750000  w= -1480 a=  -258 p= -1893 | acc=0 sw=0 vld=1 en=1  expected -1622 (0xf9aa)  got -1748 (0xf92c)
+[MISMATCH] #385 @3880000  w=  -523 a= -1058 p= -1235 | acc=0 sw=0 vld=1 en=1  expected -640 (0xfd80)  got -5906 (0xe8ee)
+[MISMATCH] #386 @3890000  w= -1953 a= -2019 p= -1289 | acc=0 sw=0 vld=1 en=1  expected -154 (0xff66)  got -10201 (0xd827)
+[MISMATCH] #387 @3900000  w=  -331 a=  -560 p=  -448 | acc=0 sw=0 vld=1 en=0  expected -154 (0xff66)  got -10201 (0xd827)
+[MISMATCH] #388 @3910000  w= -1793 a= -1898 p=  1570 | acc=1 sw=0 vld=1 en=1  expected 2637 (0x0a4d)  got 1570 (0x0622)
+[MISMATCH] #389 @3920000  w=  -395 a= -1127 p=  -632 | acc=0 sw=0 vld=1 en=1  expected 1 (0x0001)  got 7261 (0x1c5d)
+[MISMATCH] #390 @3930000  w=  -918 a=  -874 p=  -165 | acc=0 sw=0 vld=1 en=1  expected 326 (0x0146)  got 5956 (0x1744)
+[MISMATCH] #394 @3970000  w=  1988 a=  -507 p=  1562 | acc=1 sw=0 vld=1 en=1  expected 5112 (0x13f8)  got -480 (0xfe20)
+[MISMATCH] #395 @3980000  w=  1602 a=   844 p= -1867 | acc=0 sw=0 vld=1 en=1  expected -7779 (0xe19d)  got 4687 (0x124f)
+[MISMATCH] #396 @3990000  w=  1221 a=   891 p=  -230 | acc=0 sw=0 vld=1 en=1  expected -6471 (0xe6b9)  got 6689 (0x1a21)
+[MISMATCH] #399 @4020000  w=   760 a=   785 p= -1086 | acc=0 sw=0 vld=1 en=1  expected -6585 (0xe647)  got -7339 (0xe355)
+[MISMATCH] #400 @4030000  w=  -147 a=  1153 p= -1524 | acc=0 sw=0 vld=1 en=1  expected -9600 (0xda80)  got -10708 (0xd62c)
+[MISMATCH] #401 @4040000  w=  1486 a=  -369 p=   836 | acc=0 sw=0 vld=1 en=1  expected 3420 (0x0d5c)  got 3775 (0x0ebf)
+[MISMATCH] #403 @4060000  w= -1442 a= -1275 p=   952 | acc=0 sw=0 vld=1 en=1  expected 9881 (0x2699)  got 1126 (0x0466)
+[MISMATCH] #405 @4080000  w=   368 a=   651 p=  -868 | acc=0 sw=0 vld=1 en=1  expected -5428 (0xeacc)  got -1570 (0xf9de)
+[MISMATCH] #406 @4090000  w=  -232 a=  1758 p= -1904 | acc=0 sw=0 vld=1 en=1  expected -14217 (0xc877)  got -3800 (0xf128)
+[MISMATCH] #407 @4100000  w= -1440 a=   303 p= -1076 | acc=0 sw=0 vld=1 en=1  expected -3199 (0xf381)  got -1403 (0xfa85)
+[MISMATCH] #408 @4110000  w=  1141 a=  -280 p= -1086 | acc=0 sw=0 vld=1 en=1  expected 875 (0x036b)  got -785 (0xfcef)
+[MISMATCH] #409 @4120000  w=  1657 a=  1835 p=  -350 | acc=0 sw=0 vld=1 en=1  expected -13203 (0xcc6d)  got -2329 (0xf6e7)
+[MISMATCH] #410 @4130000  w=  1639 a=  -965 p= -1493 | acc=1 sw=0 vld=1 en=1  expected 5265 (0x1491)  got -453 (0xfe3b)
+[MISMATCH] #413 @4160000  w=  -468 a= -1106 p= -1597 | acc=0 sw=0 vld=1 en=1  expected -8994 (0xdcde)  got -2034 (0xf80e)
+[MISMATCH] #414 @4170000  w= -1607 a= -1524 p=  1969 | acc=0 sw=0 vld=1 en=1  expected -8223 (0xdfe1)  got 1367 (0x0557)
+[MISMATCH] #415 @4180000  w=   428 a=  1883 p=   445 | acc=0 sw=0 vld=1 en=1  expected 13037 (0x32ed)  got 1187 (0x04a3)
+[MISMATCH] #416 @4190000  w=  -741 a=   364 p=   528 | acc=0 sw=0 vld=1 en=1  expected 2962 (0x0b92)  got 671 (0x029f)
+[MISMATCH] #417 @4200000  w=  1293 a=   714 p=  -575 | acc=0 sw=0 vld=1 en=1  expected 4199 (0x1067)  got -294 (0xfeda)
+[MISMATCH] #418 @4210000  w=  -319 a=  -442 p=  1355 | acc=0 sw=0 vld=1 en=1  expected -1601 (0xf9bf)  got 1180 (0x049c)
+[MISMATCH] #419 @4220000  w=  -301 a=  -579 p=   -32 | acc=0 sw=0 vld=1 en=1  expected -3905 (0xf0bf)  got -261 (0xfefb)
+[MISMATCH] #420 @4230000  w=  -393 a=  -654 p=  1808 | acc=1 sw=0 vld=1 en=1  expected -2566 (0xf5fa)  got 1549 (0x060d)
+[MISMATCH] #421 @4240000  w=  1492 a=  -770 p=  -713 | acc=1 sw=0 vld=1 en=1  expected -5863 (0xe919)  got 469 (0x01d5)
+[MISMATCH] #422 @4250000  w=   597 a= -1563 p=  2043 | acc=1 sw=0 vld=1 en=1  expected -8410 (0xdf26)  got -7067 (0xe465)
+[MISMATCH] #423 @4260000  w=   389 a=  -853 p=  -373 | acc=1 sw=0 vld=1 en=1  expected -6078 (0xe842)  got -2363 (0xf6c5)
+[MISMATCH] #425 @4280000  w=  -862 a= -1066 p= -1992 | acc=0 sw=0 vld=1 en=1  expected -9121 (0xdc5f)  got -3612 (0xf1e4)
+[MISMATCH] #426 @4290000  w=   712 a=  1585 p=   405 | acc=0 sw=0 vld=1 en=1  expected 11004 (0x2afc)  got 2813 (0x0afd)
+[MISMATCH] #427 @4300000  w=   192 a=  1940 p=  -327 | acc=0 sw=0 vld=1 en=1  expected 12646 (0x3166)  got 2620 (0x0a3c)
+[MISMATCH] #428 @4310000  w=  1347 a=  -486 p=  1376 | acc=0 sw=0 vld=1 en=1  expected -1875 (0xf8ad)  got 637 (0x027d)
+[MISMATCH] #429 @4320000  w=   -63 a= -1175 p=   173 | acc=0 sw=0 vld=1 en=1  expected -7685 (0xe1fb)  got -1613 (0xf9b3)
+[MISMATCH] #437 @4400000  w=  -557 a=  1442 p=   871 | acc=0 sw=0 vld=1 en=1  expected 3062 (0x0bf6)  got 7821 (0x1e8d)
+[MISMATCH] #442 @4450000  w=  1692 a=  1698 p=  -601 | acc=1 sw=0 vld=1 en=1  expected 7583 (0x1d9f)  got 1727 (0x06bf)
+[MISMATCH] #443 @4460000  w= -1227 a=  1157 p=  1158 | acc=0 sw=0 vld=1 en=1  expected 6735 (0x1a4f)  got 8805 (0x2265)
+[MISMATCH] #444 @4470000  w=  -165 a=  1735 p= -1567 | acc=0 sw=0 vld=1 en=1  expected 6796 (0x1a8c)  got 9900 (0x26ac)
+[MISMATCH] #445 @4480000  w=   256 a=  -173 p=  -200 | acc=0 sw=0 vld=1 en=1  expected -1034 (0xfbf6)  got -1344 (0xfac0)
+[MISMATCH] #447 @4500000  w=   841 a=  1913 p= -1640 | acc=0 sw=0 vld=1 en=1  expected 11003 (0x2afb)  got -6894 (0xe512)
+[MISMATCH] #448 @4510000  w=  1378 a= -1132 p=  -630 | acc=1 sw=0 vld=1 en=1  expected -8112 (0xe050)  got 2478 (0x09ae)
+[MISMATCH] #449 @4520000  w=   225 a=  -862 p=  1325 | acc=0 sw=0 vld=1 en=1  expected -4373 (0xeeeb)  got -3315 (0xf30d)
+[MISMATCH] #450 @4530000  w=  1220 a=  -816 p=   886 | acc=1 sw=0 vld=1 en=1  expected -4508 (0xee64)  got -3507 (0xf24d)
+[MISMATCH] #451 @4540000  w=   535 a= -1097 p=   479 | acc=1 sw=0 vld=1 en=1  expected -6772 (0xe58c)  got -4749 (0xed73)
+[MISMATCH] #452 @4550000  w=  1372 a= -1915 p= -1425 | acc=0 sw=0 vld=1 en=1  expected -14082 (0xc8fe)  got -5428 (0xeacc)
+[MISMATCH] #453 @4560000  w= -1370 a=  -426 p=  1219 | acc=0 sw=0 vld=1 en=1  expected -1597 (0xf9c3)  got 328 (0x0148)
+[MISMATCH] #454 @4570000  w= -1217 a= -1460 p=  1056 | acc=0 sw=0 vld=1 en=1  expected -8594 (0xde6e)  got -1996 (0xf834)
+[MISMATCH] #455 @4580000  w=  1230 a=  -390 p=  -391 | acc=0 sw=0 vld=1 en=1  expected -2969 (0xf467)  got -1207 (0xfb49)
+[MISMATCH] #456 @4590000  w=  -186 a=    72 p= -1324 | acc=0 sw=0 vld=1 en=1  expected -849 (0xfcaf)  got -1174 (0xfb6a)
+[MISMATCH] #457 @4600000  w=   326 a= -2043 p=  1176 | acc=0 sw=0 vld=1 en=1  expected -12327 (0xcfd9)  got -3094 (0xf3ea)
+[MISMATCH] #458 @4610000  w= -1972 a=  -345 p=  -288 | acc=0 sw=0 vld=1 en=1  expected -2569 (0xf5f7)  got -1009 (0xfc0f)
+[MISMATCH] #473 @4760000  w=  2042 a=  1093 p= -1499 | acc=0 sw=0 vld=1 en=1  expected -2063 (0xf7f1)  got 6600 (0x19c8)
+[MISMATCH] #474 @4770000  w= -1160 a=  1009 p=  -150 | acc=0 sw=0 vld=1 en=1  expected -671 (0xfd61)  got 7326 (0x1c9e)
+[MISMATCH] #475 @4780000  w= -1416 a=   474 p=   335 | acc=0 sw=0 vld=1 en=1  expected 90 (0x005a)  got 3847 (0x0f07)
+[MISMATCH] #476 @4790000  w=  -590 a=   297 p=   833 | acc=0 sw=0 vld=1 en=1  expected 679 (0x02a7)  got 3033 (0x0bd9)
+[MISMATCH] #477 @4800000  w=  -271 a=   589 p=  -183 | acc=0 sw=0 vld=1 en=1  expected -487 (0xfe19)  got 4181 (0x1055)
+[MISMATCH] #479 @4820000  w=   520 a= -1095 p=  2027 | acc=0 sw=0 vld=1 en=1  expected 2591 (0x0a1f)  got -6088 (0xe838)
+[MISMATCH] #480 @4830000  w= -1950 a=   379 p=  -402 | acc=1 sw=0 vld=1 en=1  expected -598 (0xfdaa)  got 2406 (0x0966)
+[MISMATCH] #481 @4840000  w= -1973 a=   213 p=   -81 | acc=1 sw=0 vld=1 en=0  expected -598 (0xfdaa)  got 2406 (0x0966)
+[MISMATCH] #482 @4850000  w= -1798 a=   607 p=   481 | acc=0 sw=0 vld=1 en=1  expected 168 (0x00a8)  got 481 (0x01e1)
+[MISMATCH] #484 @4870000  w= -1361 a=  -418 p=  -966 | acc=0 sw=0 vld=1 en=1  expected -751 (0xfd11)  got -966 (0xfc3a)
+[MISMATCH] #486 @4890000  w=  -136 a=   944 p=   864 | acc=1 sw=0 vld=1 en=1  expected 377 (0x0179)  got 864 (0x0360)
+[MISMATCH] #487 @4900000  w=  1306 a= -1441 p=  1335 | acc=0 sw=0 vld=1 en=1  expected 2078 (0x081e)  got 2100 (0x0834)
+[MISMATCH] #488 @4910000  w= -1277 a= -1661 p=  -542 | acc=0 sw=0 vld=1 en=1  expected 314 (0x013a)  got 340 (0x0154)
+
+=======================================================
+ checked : 500
+ errors  : 209
+ coverage: xmsim: *N,COVNSM: (File: ./pe_tb.sv, Line: 247):(Time: 5030 NS + 0) Sampling of covergroup type "cg" (./pe_tb.sv:195), referred in the statement is not enabled. As a result, coverage methods get_coverage(), get_inst_coverage(), get_hitcount(), and get_inst_hitcount() will return 0 coverage.
+0.0%
+=======================================================
+ FAIL
+
+Simulation complete via $finish(1) at time 5030 NS + 0
+./pe_tb.sv:252     $finish;
+xcelium> exit
+TOOL:	xrun(64)	24.03-s013: Exiting on Oct 26, 2026 at 22:47:59 PDT  (total: 00:00:01)

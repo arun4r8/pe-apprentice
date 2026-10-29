@@ -53,7 +53,7 @@ module pe_tb;
   //----------------------------------------------------------------------
   mailbox #(pe_txn) gen2drv = new();
   mailbox #(pe_txn) drv2scb = new();
-  mailbox #(bit signed [DW-1:0]) mon2scb = new();
+  mailbox #(logic signed [DW-1:0]) mon2scb = new();
 
   pe_model model = new();
 
@@ -73,6 +73,8 @@ module pe_tb;
     pe_txn t;
     repeat (n) begin
       t = new();
+      assert (t.randomize()) else $fatal(1, "randomize failed: constraints contradict each other");
+      gen2drv.put(t);
 
       // TODO(week5): randomize t, then put it in gen2drv.
       //
@@ -105,12 +107,18 @@ module pe_tb;
 
       pe_weight_in   <= t.weight;
       pe_input_in    <= t.activation;
+      pe_psum_in     <= t.psum_in;
+      pe_accept_w_in <= t.accept_w;
+      pe_switch_in   <= t.switch;
+      pe_valid_in    <= t.valid;
+      pe_enabled     <= t.enabled;
+
+      drv2scb.put(t);
 
       // TODO(week5): drive the five remaining inputs from t, then put t into
       // drv2scb so the scoreboard knows what was sent. The driver is the only
       // component allowed to drive anything; that restriction is what keeps
       // the monitor honest.
-
     end
   endtask
 
@@ -145,7 +153,7 @@ module pe_tb;
   //======================================================================
   task automatic scoreboard();
     pe_txn t;
-    bit signed [DW-1:0] observed, expected;
+    logic signed [DW-1:0] observed, expected;
     forever begin
       drv2scb.get(t);          // what we sent
       mon2scb.get(observed);   // what came back
@@ -157,7 +165,13 @@ module pe_tb;
       // nothing at 1am; print the check number, `t.show()`, the expected
       // value and the observed one. Increment n_checked every time and
       // n_errors only on a failure, because the run loop waits on n_checked.
-
+      expected = model.step(t);
+      n_checked++;
+      if (!model.last_dont_care && observed !== expected) begin
+        n_errors++;
+        $display("[MISMATCH] #%0d @%0t  %s  expected %0d (0x%04h)  got %0d (0x%04h)",
+                 n_checked, $time, t.show(), expected, expected, observed, observed);
+      end
     end
   endtask
 
@@ -183,7 +197,8 @@ module pe_tb;
     cp_accept  : coverpoint pe_accept_w_in;
     cp_valid   : coverpoint pe_valid_in;
     cp_enabled : coverpoint pe_enabled;
-
+    x_switch_accept : cross cp_switch,  cp_accept;
+    x_enabled_valid : cross cp_enabled, cp_valid;
     // TODO(week5): add two crosses.
     //
     // A coverpoint records the values one signal took. A cross records the
@@ -244,3 +259,4 @@ module pe_tb;
   end
 
 endmodule
+

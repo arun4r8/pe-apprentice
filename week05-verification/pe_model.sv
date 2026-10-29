@@ -27,10 +27,13 @@ class pe_model;
   localparam int QI = 8;
   localparam int QF = 8;
 
-  // The state your model has to carry between cycles. Exactly the state the
-  // real PE carries.
+  // The state your model has to carry between cycles. Exactly the state the real PE carries.
   bit signed [DW-1:0] weight_bg;    // background, loaded but not in use
   bit signed [DW-1:0] weight_fg;    // foreground, what the multiplier reads
+  bit signed [DW-1:0] last_out;        // what the output showed last cycle (Q3: hold)
+  bit                 last_dont_care;  // Q4: tell the scoreboard to skip this one
+  bit signed [DW-1:0] pending;         // my PE is 2-stage: this cycle's result shows next cycle
+  bit                 pending_dc;      // the don't-care flag travels with it
 
   // ----------------------------------------------------------------------
   // Given: Q8.8 arithmetic that matches rtl/fxp.sv exactly.
@@ -56,8 +59,12 @@ class pe_model;
 
   // Given. The state of a PE the cycle after reset releases.
   function void reset();
-    weight_bg = '0;
-    weight_fg = '0;
+    weight_bg      = '0;
+    weight_fg      = '0;
+    last_out       = '0;
+    last_dont_care = '0;
+    pending        = '0;
+    pending_dc     = '0;
   endfunction
 
   // ----------------------------------------------------------------------
@@ -82,11 +89,37 @@ class pe_model;
   // until the next one. Software runs top to bottom, so if you update
   // weight_bg before you use it you have modelled a PE that does not exist.
   // ----------------------------------------------------------------------
+
   function bit signed [DW-1:0] step(pe_txn t);
-    // your code
-    return '0;
+    bit signed [DW-1:0] w_used, result;
+
+    // Q3: disabled -> nothing changes
+    if (!t.enabled) return last_out;
+
+    // Q1: which weight the multiplier reads
+    w_used = t.switch ? weight_bg : weight_fg;
+
+    // Q2: promote first, then accept
+    if (t.switch)   weight_fg = weight_bg;
+    if (t.accept_w) weight_bg = t.weight;
+
+    // Q5: the MAC
+    result = q_add(q_mul(t.activation, w_used), t.psum_in);
+
+    // Q4
+    `ifndef DUT_VENDOR
+    // my PE is two-stage: hands out last cycle's result
+      last_out       = pending;     pending    = result;
+      last_dont_care = pending_dc;  pending_dc = !t.valid;
+    `else
+    // vendor PE is one-stage: this cycle's result shows now
+      last_out       = result;
+      last_dont_care = !t.valid;
+    `endif
+    return last_out;
   endfunction
 
 endclass
 
 `endif
+
